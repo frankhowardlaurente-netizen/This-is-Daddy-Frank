@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Practice Page</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --primary-hover: #2980b9;
+            --text-dark: #333;
+            --text-light: #2c3e50;
+            --success-color: #27ae60;
+            --bg-light: #f0f4f8;
+            --bg-white: white;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding: 20px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin: 20px 0 15px 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .box {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .box p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        #message {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--success-color);
+            min-height: 24px;
+        }
+
+        ul {
+            text-align: left;
+            display: inline-block;
+        }
+
+        ul li {
+            margin: 8px 0;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .box {
+                max-width: 100%;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello! This is Daddy Frank Howard</h1>
+
+    <div class="container">
+        <div class="box">
+            <p>Welcome to your first HTML page.</p>
+            <p>You can change the text, colors, and buttons to practice.</p>
+            
+            <button id="clickBtn">Click me!</button>
+            <p id="message"></p>
+        </div>
+
+        <div class="box">
+            <h2>Things you can try:</h2>
+            <ul>
+                <li>Change the title in the &lt;title&gt; tag</li>
+                <li>Edit the heading text</li>
+                <li>Change the background color</li>
+                <li>Add more buttons or paragraphs</li>
+                <li>Create more interactive features</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 My Practice Page. Keep learning! 🚀</p>
+    </div>
+
+    <script>
+        // Get button and message elements
+        const clickBtn = document.getElementById('clickBtn');
+        const messageEl = document.getElementById('message');
+
+        // Add click event listener
+        clickBtn.addEventListener('click', showMessage);
+
+        function showMessage() {
+            messageEl.innerText = "You clicked the button! Nice work! 🎉";
+            
+            // Optional: Clear message after 3 seconds
+            setTimeout(() => {
+                messageEl.innerText = '';
+            }, 3000);
+        }
+
+        // Keyboard accessibility
+        clickBtn.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                showMessage();
+            }
+        });
+    </script>
+</body>
+</html>
