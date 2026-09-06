@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daddy Frank Howard HTML - Encyclopedia</title>
+  <style>
+    :root {
+      --navy: #001f3f;
+      --wiki-bg: #0a2a52;
+      --wiki-border: #3d5a80;
+      --wiki-link: #7eb6ff;
+      --wiki-link-visited: #c4a6ff;
+      --wiki-red: #d33;
+      --infobox-header: #36c;
+      --content-width: 990px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Linux Libertine", "Georgia", "Times", "Source Serif Pro", serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #e8eef6;
+      background: #001f3f;
+    }
+    a { color: var(--wiki-link); text-decoration: none; }
+    a:visited { color: var(--wiki-link-visited); }
+    a:hover { text-decoration: underline; }
+    .topbar {
+      background: #00152c;
+      border-bottom: 1px solid #3d5a80;
+      font-family: sans-serif;
+      font-size: 13px;
+    }
+    .topbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 16px;
+      gap: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #e8eef6;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .globe {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff 0 18%, #36c 19% 100%);
+      border: 2px solid #202122;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .globe::after {
+      content: "W";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-family: Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .brand small { display: block; font-weight: 400; color: #9bb0c9; font-size: 11px; }
+    .top-links { display: flex; gap: 14px; flex-wrap: wrap; }
+    .layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      min-height: calc(100vh - 56px);
+    }
+    nav.sidebar {
+      font-family: sans-serif;
+      font-size: 13px;
+      padding: 16px 12px 40px;
+      border-right: 1px solid #3d5a80;
+      background: #001f3f;
+    }
+    nav.sidebar h3 {
+      margin: 16px 0 6px;
+      font-size: 12px;
+      color: #9bb0c9;
+      border-bottom: 1px solid #3d5a80;
+      padding-bottom: 4px;
+    }
+    nav.sidebar a { display: block; padding: 2px 0; }
+    main {
+      padding: 8px 24px 64px;
+      min-width: 0;
+    }
+    .page-tabs {
+      font-family: sans-serif;
+      font-size: 13px;
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--wiki-border);
+      margin: 0 -8px 12px;
+    }
+    .page-tabs span {
+      padding: 8px 12px;
+      border: 1px solid transparent;
+      margin-bottom: -1px;
+    }
+    .page-tabs .on {
+      background: #001f3f;
+      border-color: var(--wiki-border) var(--wiki-border) #001f3f;
+      font-weight: 600;
+    }
+    h1 {
+      font-family: "Linux Libertine", Georgia, serif;
+      font-size: 1.8em;
+      font-weight: 400;
+      border-bottom: 1px solid #3d5a80;
+      margin: 0 0 0.25em;
+      padding-bottom: 0.15em;
+      line-height: 1.3;
+    }
+    .hatnote {
+      font-style: italic;
+      font-size: 0.95em;
+      color: #c5d4e8;
+      margin: 0.4em 0 1em;
+    }
+    .lead p { margin: 0 0 0.8em; }
+    .infobox {
+      float: right;
+      clear: right;
+      width: 280px;
+      margin: 0 0 16px 18px;
+      background: var(--wiki-bg);
+      border: 1px solid var(--wiki-border);
+      font-family: sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .infobox .ibox-title {
+      background: #36c;
+      color: #fff;
+      text-align: center;
+      font-weight: 700;
+      padding: 8px 6px;
+      font-size: 15px;
+    }
+    .infobox .ibox-sub {
+      text-align: center;
+      padding: 4px 8px 8px;
+      font-size: 12px;
+      color: #e8eef6;
+      background: #12345c;
+    }
+    .portrait {
+      margin: 10px 8px 8px;
+      background: transparent;
+      border: none;
+      text-align: center;
+      padding: 4px;
+    }
+    .portrait img {
+      width: 168px;
+      height: 168px;
+      object-fit: cover;
+      object-position: center 18%;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 1px #a2a9b1;
+      background: #c9d7e8;
+    }
+    .portrait figcaption {
+      font-size: 11px;
+      color: #9bb0c9;
+      margin-top: 8px;
+    }
+    .infobox table { width: 100%; border-collapse: collapse; }
+    .infobox th, .infobox td {
+      padding: 5px 8px;
+      vertical-align: top;
+      border-top: 1px solid #3d5a80;
+    }
+    .infobox th {
+      text-align: left;
+      font-weight: 600;
+      width: 38%;
+      color: #d6e4f5;
+    }
+    .toc {
+      display: inline-block;
+      background: var(--wiki-bg);
+      border: 1px solid var(--wiki-border);
+      padding: 8px 14px 10px;
+      margin: 0.6em 0 1em;
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+    .toc .toc-title { font-weight: 700; text-align: center; margin-bottom: 6px; }
+    .toc ol { margin: 0; padding-left: 22px; }
+    .toc li { margin: 2px 0; }
+    h2 {
+      font-family: "Linux Libertine", Georgia, serif;
+      font-size: 1.5em;
+      font-weight: 400;
+      border-bottom: 1px solid #3d5a80;
+      margin: 1.2em 0 0.4em;
+      padding-bottom: 0.15em;
+    }
+    h2 .edit {
+      font-family: sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      margin-left: 8px;
+    }
+    h3 {
+      font-family: "Linux Libertine", Georgia, serif;
+      font-size: 1.2em;
+      font-weight: 400;
+      margin: 1em 0 0.3em;
+    }
+    p { margin: 0.55em 0; }
+    .mw-ref {
+      font-family: sans-serif;
+      font-size: 11px;
+      vertical-align: super;
+      line-height: 1;
+    }
+    .note-box {
+      border: 1px solid #3d5a80;
+      background: #0a2a52;
+      padding: 10px 12px;
+      margin: 1em 0;
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+    .note-box strong { display: block; margin-bottom: 4px; }
+    ul { margin: 0.4em 0 0.8em 1.4em; padding: 0; }
+    .reflist {
+      font-size: 14px;
+      font-family: sans-serif;
+      columns: 2;
+      column-gap: 24px;
+    }
+    footer.site {
+      clear: both;
+      margin-top: 36px;
+      padding-top: 12px;
+      border-top: 1px solid #3d5a80;
+      font-family: sans-serif;
+      font-size: 12px;
+      color: #9bb0c9;
+    }
+    @media (max-width: 860px) {
+      .layout { grid-template-columns: 1fr; }
+      nav.sidebar { display: none; }
+      .infobox { float: none; width: 100%; margin: 0 0 16px; }
+      .reflist { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="globe" aria-hidden="true"></div>
+        <div>
+          Daddy Frank Howard HTML
+          <small>The free personal encyclopedia</small>
+        </div>
+      </div>
+      <div class="top-links">
+        <a href="#article">Article</a>
+        <a href="#talk">Talk</a>
+        <a href="#early-life">Read</a>
+        <a href="mailto:frankhowardlaurente@gmail.com">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Site menu">
+      <h3>Contents</h3>
+      <a href="#lead">Top</a>
+      <a href="#toc">Contents</a>
+      <a href="#early-life">Early life</a>
+      <a href="#career">Career</a>
+      <a href="#music">Music and teaching</a>
+      <a href="#science">Science and social media</a>
+      <a href="#personal-life">Personal life</a>
+      <a href="#see-also">See also</a>
+      <a href="#external-links">External links</a>
+      <h3>Tools</h3>
+      <a href="#references">References</a>
+      <a href="mailto:frankhowardlaurente@gmail.com">Email</a>
+    </nav>
+
+    <main id="article">
+      <div class="page-tabs">
+        <span class="on">Article</span>
+        <span id="talk">Talk</span>
+        <span>Read</span>
+        <span>View source</span>
+        <span>History</span>
+      </div>
+
+      <h1>Daddy Frank Howard HTML</h1>
+      <p class="hatnote">From the personal encyclopedia. This article is about Frank Howard Laurente, commonly known as Daddy Frank Howard.</p>
+
+      <aside class="infobox" aria-label="Infobox">
+        <div class="ibox-title">Daddy Frank Howard</div>
+        <div class="ibox-sub">Frank Howard Laurente</div>
+        <figure class="portrait">
+          <img src="frank-portrait.svg" alt="Avatar photo of Daddy Frank Howard" width="168" height="168" />
+          <figcaption>Avatar photo of Daddy Frank Howard</figcaption>
+        </figure>
+        <table>
+          <tr><th>Born</th><td>Frank Howard Laurente<br>25 March 1994 (age 32)<br>Antipolo, Rizal, Philippines</td></tr>
+          <tr><th>Residence</th><td>Laguna, Philippines</td></tr>
+          <tr><th>Nationality</th><td>Filipino</td></tr>
+          <tr><th>Occupations</th><td>Warehouse associate (DHL); music trainer</td></tr>
+          <tr><th>Known for</th><td>Music teaching; science and music posts on social media</td></tr>
+          <tr><th>Fields of interest</th><td>Music; science</td></tr>
+          <tr><th>Platforms</th><td>Facebook; TikTok; YouTube <em>(placeholder links)</em></td></tr>
+          <tr><th>Email</th><td><a href="mailto:frankhowardlaurente@gmail.com">frankhowardlaurente@gmail.com</a></td></tr>
+        </table>
+      </aside>
+
+      <div class="lead" id="lead">
+        <p><b>Daddy Frank Howard</b> (born <b>Frank Howard Laurente</b>, 25 March 1994) is a Filipino music learner and trainer, science enthusiast, and warehouse worker. Born in Antipolo, Rizal, he later settled in Laguna, Philippines, where he works in DHL warehouses while sharing ideas about music and science on social media.<sup class="mw-ref"><a href="#cite1">[1]</a></sup></p>
+        <p>He offers music training by email and has announced a discount for the first 100 students who write to him.<sup class="mw-ref"><a href="#cite2">[2]</a></sup></p>
+      </div>
+
+      <nav class="toc" id="toc">
+        <div class="toc-title">Contents</div>
+        <ol>
+          <li><a href="#early-life">Early life</a></li>
+          <li><a href="#career">Career</a></li>
+          <li><a href="#music">Music and teaching</a></li>
+          <li><a href="#science">Science and social media</a></li>
+          <li><a href="#personal-life">Personal life</a></li>
+          <li><a href="#see-also">See also</a></li>
+          <li><a href="#references">References</a></li>
+          <li><a href="#external-links">External links</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="early-life">Early life <a class="edit" href="#article">[edit]</a></h2>
+      <p>Frank Howard Laurente was born on 25 March 1994 in Antipolo, Rizal, in the Philippines. Public notes about his childhood emphasize a lasting interest in two fields he still treats as paired pursuits: music and science.<sup class="mw-ref"><a href="#cite1">[1]</a></sup></p>
+      <p>Antipolo, a city in Rizal Province east of Metro Manila, is recorded as his place of birth. Later accounts place his adult residence in Laguna.</p>
+
+      <h2 id="career">Career <a class="edit" href="#article">[edit]</a></h2>
+      <p>As of the mid-2020s, Laurente works in DHL warehouses in the Philippines. Warehouse work is described as his present employment, alongside independent music training offered in his spare time.<sup class="mw-ref"><a href="#cite1">[1]</a></sup></p>
+      <p>He is not primarily documented as a full-time recording artist or academic scientist; instead he is presented as a working adult who studies and teaches music while remaining employed in logistics.</p>
+
+      <h2 id="music">Music and teaching <a class="edit" href="#article">[edit]</a></h2>
+      <p>Laurente describes himself as passionate about learning music. He also teaches: prospective students are invited to write to his Gmail address for music training.</p>
+      <div class="note-box">
+        <strong>Music training note</strong>
+        A limited discount is offered to the first 100 students who contact him at
+        <a href="mailto:frankhowardlaurente@gmail.com">frankhowardlaurente@gmail.com</a>.
+        Availability after that number is not specified on this page.
+      </div>
+      <p>Details of his instrument, method, or curriculum are not yet listed here and may be added when provided.</p>
+
+      <h2 id="science">Science and social media <a class="edit" href="#article">[edit]</a></h2>
+      <p>Alongside music, Laurente is described as passionate about science. He often shares ideas on major social platforms, including Facebook, TikTok, and YouTube.<sup class="mw-ref"><a href="#cite1">[1]</a></sup></p>
+      <p>Official profile URLs are placeholders on this article and can be replaced with live links later.</p>
+      <ul>
+        <li>Facebook — <em>placeholder link</em></li>
+        <li>TikTok — <em>placeholder link</em></li>
+        <li>YouTube — <em>placeholder link</em></li>
+      </ul>
+
+      <h2 id="personal-life">Personal life <a class="edit" href="#article">[edit]</a></h2>
+      <p>Laurente currently resides in Laguna, Philippines. He uses the public name <b>Daddy Frank Howard</b> in addition to his legal name, Frank Howard Laurente.</p>
+
+      <h2 id="see-also">See also <a class="edit" href="#article">[edit]</a></h2>
+      <ul>
+        <li>Music education in the Philippines</li>
+        <li>Antipolo</li>
+        <li>Laguna (province)</li>
+        <li>DHL</li>
+      </ul>
+
+      <h2 id="references">References <a class="edit" href="#article">[edit]</a></h2>
+      <div class="reflist">
+        <p id="cite1">1. Biographical notes supplied for this article: birth in Antipolo, Rizal (25 March 1994); interests in music and science; social media activity on Facebook, TikTok, and YouTube; residence in Laguna; employment in DHL warehouses.</p>
+        <p id="cite2">2. Contact note: music-training discount for the first 100 students via frankhowardlaurente@gmail.com.</p>
+      </div>
+
+      <h2 id="external-links">External links <a class="edit" href="#article">[edit]</a></h2>
+      <ul>
+        <li>Email: <a href="mailto:frankhowardlaurente@gmail.com">frankhowardlaurente@gmail.com</a></li>
+        <li>Facebook (placeholder)</li>
+        <li>TikTok (placeholder)</li>
+        <li>YouTube (placeholder)</li>
+      </ul>
+
+      <footer class="site">
+        This page is a fan-style encyclopedia article titled <b>Daddy Frank Howard HTML</b>.
+        It is not affiliated with Wikipedia. Social profile URLs are placeholders and can be filled in later.
+        Last updated 6 September 2026.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
